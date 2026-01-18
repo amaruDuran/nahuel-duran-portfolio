@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps, data }) {
   return (
     <>
       <Head>
-        <title>SIUX Studio — Portfolio</title>
+        <title>Nahuel Duran — Portfolio</title>
         <meta name="description" content="SIUX Studio — Portfolio" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

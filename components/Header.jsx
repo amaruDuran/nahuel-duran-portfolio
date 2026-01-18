@@ -2,42 +2,14 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import { Content } from "../config/links";
 
 const Header = () => {
   const router = useRouter();
-  const [definitions, setDefinitions] = useState({});
-  const getSiuxStudioDefinitions = async () => {
-    const res = await fetch("/api/siux-studio");
-    const defs = await res.json();
-    setDefinitions(defs);
-  };
-
-  useEffect(() => {
-    getSiuxStudioDefinitions();
-  }, []);
-
   return (
     <div className="animation-fade-in animation-faster">
-      <Head>
-        {/* Load Google fonts dinamically */}
-        <link
-          href={`https://fonts.googleapis.com/css?family=${definitions.font?.variations
-            ?.map(
-              (current) =>
-                `${current.value.replace(/ /g, "+")}:${current.variants
-                  .filter((va) => va.length === 3)
-                  .join(",")}`
-            )
-            .join("|")}`}
-          type="text/css"
-          rel="stylesheet"
-        />
-      </Head>
       {/* Header */}
       <header className="container-mobile display-flex justify-content-space-between align-items-center padding-m tablet:padding-xl margin-top-s tablet:margin-top-xl">
-        {/* <div>{definitions.font?.length}</div> */}
         <Link href="/">
           <Image
             src="/images/logo.jpg"
